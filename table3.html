@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>table 常用</title>
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <style>
+        .selected{background:#99a1a6;}
+    </style>
+</head>
+<body>
+<h3>
+    实现点击大标题后边子类隐藏的效果
+    实现技术:父类类名相同,都为parent,父类的ID和子类的class关联
+</h3>
+<table>
+    <thead>
+    <tr>
+        <td>&nbsp;</td>
+        <td>姓名</td>
+        <td>性别</td>
+        <td>暂住地</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="parent" id="row_1">
+        <td clospan="3">前台组</td>
+    </tr>
+    <tr class="child_row_1">
+        <td>肖黎明</td>
+        <td>男</td>
+        <td>北京</td>
+    </tr>
+    <tr class="child_row_1">
+    <td>小花</td>
+        <td>女</td>
+        <td>汉州</td>
+    </tr>
+    <tr class="child_row_1">
+    <td>angel</td>
+        <td>女</td>
+        <td>北京</td>
+    </tr>
+    <tr  class= "parent" id="row_2">
+        <td clospan="3">设计组</td>
+    </tr>
+    <tr class="child_row_2">
+    <td>黎明</td>
+        <td>男</td>
+        <td>北京</td>
+    </tr>
+    <tr class="child_row_2">
+        <td>波波</td>
+        <td>女</td>
+        <td>汉州</td>
+    </tr>
+    <tr class="child_row_2">
+        <td>滴滴</td>
+        <td>女</td>
+        <td>北京</td>
+    </tr>
+    </tbody>
+</table>
+<script>
+    $(function(){
+        $("tr.parent").click(function () {
+            $(this).toggleClass("selected")
+                   .nextAll('.child_'+this.id).toggle();
+        }).click();
+    });
+</script>
+</body>
+</html>

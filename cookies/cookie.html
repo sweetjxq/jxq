@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="content">
+    cookies设置
+</div>
+
+<script>
+var CookieUtil = {
+    //获取cookie
+    get:function(name){
+        var cookieName = encodeURIComponent(name) + "=",
+            cookieStart = document.cookie.indexOf(cookieName),
+            cookieValue ='';
+        if(cookieStart > -1) {
+            var cookieEnd = document.cookie.indexOf(';',cookieStart);
+            if(cookieEnd==-1) {
+                cookieEnd = document.cookie.length;
+            }
+            cookieValue = decodeURIComponent(document.cookie.substring(cookieStart+cookieName.length,cookieEnd));
+
+
+        }
+        return cookieValue;
+
+
+    },
+    //设置cooKies
+    set:function (name,value,expires,path,domain,secure) {
+        if(value!==undefined) {
+            var cookieText = encodeURIComponent(name) + '=' +encodeURIComponent(value);
+        }
+
+        if (typeof expires === 'number') {
+            var days = expires, t = expires = new Date();
+            t.setTime(+t + days * 864e+5)	;
+            cookieText += ";expries="+expires.toUTCString();
+            console.log(cookieText);
+        }
+        if(path){
+            cookieText +=';path='+path;
+        }
+        if(domain) {
+            cookieText +=';domain='+domain;
+        }
+        if(secure) {
+            cookieText += ';secure';
+        }
+        document.cookie = cookieText;
+
+
+    },
+    //删除cookie
+    unset:function(name,value){
+        this.set(name,'',-1);
+
+    }
+
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>table 常用</title>
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <style>
+        .selected{background:#99a1a6;}
+    </style>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <td>&nbsp;</td>
+        <td>姓名</td>
+        <td>性别</td>
+        <td>暂住地</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><input type="checkbox" name="hehe"></td>
+        <td>肖黎明</td>
+        <td>男</td>
+        <td>北京</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="hehe" checked></td>
+        <td>小花</td>
+        <td>女</td>
+        <td>汉州</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="hehe"></td>
+        <td>angel</td>
+        <td>女</td>
+        <td>北京</td>
+    </tr>
+    </tbody>
+</table>
+<script>
+    $(function(){
+        $("table tbody>tr").click(function(){
+            var selected = $(this).find(":checkbox").prop('checked');
+            if(selected) {
+                $(this).addClass("selected");
+            } else {
+                $(this).removeClass("selected");
+            }
+        });
+        $("input[name='hehe']:checked").parents("tr").addClass('selected');
+    });
+</script>
+</body>
+</html>

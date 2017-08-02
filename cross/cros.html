@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../jquery-3.2.1.min.js"></script>
+</head>
+<body>
+我要利用cros实现跨域请求
+
+<script>
+    document.cookie='username=jxq';
+    $.ajax({
+        url:'http://learn.com/index.php',
+        type:'POST',
+        dataType:'json',
+        xhrFields: {
+            withCredentials: true
+        },
+        success:function(data){
+            console.log(data);
+        }
+
+    });
+</script>
+</body>
+</html>

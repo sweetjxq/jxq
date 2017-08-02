@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <style>
+        .one{
+            color:red;
+            height:200px;
+            width:800px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="one" id="one">
+  <div class="min" title="test"><div class="ne">11</div></div>
+    <div class="min" title="test3"><span>11</span></div>
+</div>
+<div class="one" id="two">
+    <div class="min" title="haha">33</div>
+    <div class="min">44</div>
+</div>
+<div class="one">
+    <div class="min">55</div>
+    <div class="min">66</div>
+    <div class="min">77</div>
+</div>
+
+
+<div class="haha">
+    <span>John,</span>
+    <span>Karl,</span>
+    <span>Brandon</span>
+</div>
+<div class="haha">
+    <span>Glen,</span>
+    <span>Tane,</span>
+    <span>Ralph</span>
+</div>
+
+
+<form id="f1">
+<input type="text" name="username"/>
+<input type="text" name="padssword"/>
+<select id="a" multiple="multiple">
+    <option value="0">aaaa</option>
+    <option value="1">bcccc</option>
+    <option value="2">c33333</option>
+</select>
+<input type="radio" name="sex" value="0">男
+<input type="radio" name="sex" value="1"/>女
+<br/>
+<input type="checkbox" name="love" value="0"/>乒乓球
+<input type="checkbox" name="love" value="1"/>羽毛球
+<input type="checkbox" name="love" value="2"/>足球
+    </form>
+
+<table>
+    <tbody>
+        <tr>
+            <td>111</td>
+            <td>111</td>
+        </tr>
+        <tr>
+            <td>222</td>
+            <td>222</td>
+        </tr>
+        <tr>
+            <td>333</td>
+            <td>333</td>
+        </tr>
+    </tbody>
+</table>
+<hr/>
+<table>
+    <tbody>
+    <tr>
+        <td>111</td>
+        <td>111</td>
+    </tr>
+    <tr>
+        <td>222</td>
+        <td>222</td>
+    </tr>
+    <tr>
+        <td>333</td>
+        <td>333</td>
+    </tr>
+    </tbody>
+</table>
+
+
+<select id="single">
+    <option>Single</option>
+    <option>Single2</option>
+</select>
+
+<select id="multiple" multiple="multiple">
+    <option >Multiple</option>
+    <option>Multiple2</option>
+    <option >Multiple3</option>
+</select>
+
+<style>
+    div {
+        padding: 15px;
+    }
+    p {
+        margin-left: 10px;
+    }
+</style>
+<div>
+    <p>Hello</p>
+</div>
+<p></p>
+
+<script>
+var ht = new Array();
+var styleProps = $("#one").css(['width','height']);
+$.each(styleProps,function(prop,val){
+    ht.push(prop+":"+val);
+});
+console.log(ht);
+$(".haha").click(function(){
+    alert(124);
+});
+
+$( "#one" ).click(function() {
+    var html = ["The clicked div has the following styles:"];
+
+    var styleProps = $(this).css([
+        "width", "height", "color", "background-color"
+    ]);
+    console.log(styleProps);
+    $.each(styleProps, function (prop, value) {
+        html.push(prop + ": " + value);
+    });
+console.log(html);
+
+});
+</script>
+</body>
+</html>

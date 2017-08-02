@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复选框全选,全部选、反选</title>
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<input type="checkbox" name="items" value="1"/> 足球
+<input type="checkbox" name="items" value="2"/>篮球
+<input type="checkbox" name="items" value="3"/>羽毛球
+<input type="checkbox" name="items" value="4"/>兵乓球
+<br/>
+<input type="button" id="checkall" value="全选"/>
+<input type="button" id="checkno" value="全不选"/>
+<input type="button" id="checkrev" value="反选"/>
+<input type="checkbox" id="checka" >全选/全不选
+<input type="button" id="send" value="提交">
+</body>
+<script>
+    //全选
+    $("#checkall").click(function () {
+        $('input[name="items"]').prop("checked",true);
+    });
+    //全不选
+    $("#checkno").click(function () {
+        $("input[name='items']").prop("checked",false);
+    });
+    //反选
+    $("#checkrev").click(function () {
+        $('input[name="items"]').each(function(){
+           // $(this).prop("checked",!this.checked);
+            this.checked=!this.checked;
+        });
+    });
+    //获取选中值
+    var checkedval = [];
+    $("#send").click(function () {
+        $("input[name='items']:checked").each(function(){
+            checkedval.push($(this).val());
+        });
+    });
+
+    //input框来控制全选与全不选
+    $("#checka").click(function(){
+        $("input[name='items']").prop('checked',this.checked);
+    });
+    //复选框有一个没有选择,全选的复选框应该未被选中
+    //(1) 遍历选中状态 (2)遍历选中个数是否等于所有input数目
+   /* $("input[name='items']").click(function(){
+        var flag = true;
+        $("input[name='items']").each(function(){
+            if(!this.checked) flag = false;
+        });
+        $("#checka").prop("checked",flag);
+    });*/
+
+    $("input[name='items']").click(function(){
+        var $tmp = $("input[name='items']");
+        $("#checka").prop("checked",$tmp.length==$tmp.filter(':checked').length);
+    });
+</script>
+</html>

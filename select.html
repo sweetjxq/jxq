@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery select</title>
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<select multiple id="select1">
+    <option value="1">选项1</option>
+    <option value="2">选项2</option>
+    <option value="3">选项3</option>
+    <option value="4">选项4</option>
+</select>
+<select id="select2" multiple>
+
+</select>
+<div>
+    <button id="add" value="选中项添加到右边">选中项添加到右边</button>
+    <button id="addAll" >全部添加到右边</button>
+</div>
+<script>
+    //选中项添加到右边
+   $("#add").click(function(){
+        var $selected = $("#select1 option:selected");
+       $("#select2").append($selected);
+    });
+
+    //全部元素添加到右边
+    $("#addAll").click(function () {
+        var $options = $("#select1 option");
+        $("#select2").append($options);
+    });
+    //点击某一项添加到右边
+    $("#select1").dblclick(function(){
+      // $("#select2").append($(this));
+        var $options = $("option:selected",this);
+        $options.appendTo("#select2");
+
+    });
+    //获取选中项
+    $("#add").click(function(){
+        //用val获取
+        var selected = $("#select1").val() || [];
+        console.log(selected);
+        //遍历获取
+        var $selected2 = $("#select1 option:selected");
+        var options = [];
+        $selected2.each(function(index,val){
+            options.push($(this).val());
+
+        });
+        console.log(options);
+
+    });
+</script>
+</body>
+</html>

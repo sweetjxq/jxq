@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<form>
+    <input type="text" name="username"/>
+    <input type="text" name="lala"/>
+    <input type="submit" id="submit">
+</form>
+<script>
+    $("#submit").click(function(){
+
+       /* $.ajax({
+            url:'check.html',
+            method:'post',
+            data:$('form').serialize(),
+            dataType:'json',
+            success:function () {
+                console.log('success');
+            },
+            complete:function(){
+                console.log('complete');
+
+            }
+
+
+        });*/
+       $.get("index.php",{data:$("form").serialize()},function (data) {
+           console.log(data);
+       });
+    });
+</script>
+</body>
+</html>

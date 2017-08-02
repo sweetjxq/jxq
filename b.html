@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>find demo</title>
+    <style>
+        p {
+            font-size: 20px;
+            width: 200px;
+            color: blue;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+        .hilite {
+            background: yellow;
+        }
+        .child{
+            width:100px;
+            position: relative;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<div class="switch">
+    <h2>title2话说还是</h2>
+    <div class="child">我是子元素</div>
+</div>
+<button>添加</button>
+<table>
+    <tbody>
+        <tr>
+            <td>我是第一行第一列</td>
+            <td>我是第一行第二列</td>
+        </tr>
+        <tr>
+            <td>我是第一行第一列</td>
+            <td>我是第一行第二列</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<script>
+    /*$("table").click(function (event) {
+        $('.child').off('.pulgin');
+        $(event.target).not("table,tr,tbody").css("background","red");
+    });
+    $("button").click(function () {
+        $(".switch").append('<div class="child">再来一个</div>');
+    });
+
+
+  $(".switch").on('click','.child',function (event) {
+        alert("点击的是child");
+        event.stopPropagation();
+    });
+    $('.child').on('click',function(){
+        console.log('哈哈');
+    });
+    $('.child').on('click',{'name':'ni','age':'18'},myfun1=function (event) {
+        console.log(event.data);
+    });
+    $('.child').on('click.pulgin',myfun2 = function(){
+        alert('woshi  22222');
+    });
+    $(".switch").click(function () {
+        alert('点击的是大的div');
+    });
+
+    $('.child').on('mouseover',function(event){
+        console.log(event.target);
+    })*/
+
+    /*$(document).ready(function () {
+        $('.child').animate({left:"+=500px"},3000)
+                    .queue(function (next) {
+                    $(this).css("background","#ccc");
+                     next(); //重要不能省略
+                    })
+                     .animate({height:"800px"},3000);
+    });
+
+
+     $(document).ready(function () {
+     $('.child').animate({left:"+=500px"},3000,function(){
+         $(this).css("background","#ccc");
+     })
+     .animate({height:"800px"},3000);
+     });*/
+
+   /* $(".child").fadeTo('slow','0.5')
+            .animate({left:"500px"},{duration:'slow',queue:false});*/
+ /*  var globalVar;
+   function outerFn() {
+        console.log('outer function');
+       function innerFn() {
+           console.log('inner function');
+       }
+       return innerFn;
+   }
+ console.log('outerfn:');
+  var ref = outerFn();*/
+
+ $.get('http://test.only.com/post_file.php',{param:'hello world'},function(data,textstatus){
+     console.log(textstatus);
+     $.each(data,function(index,value){
+         console.log(index+":" +value);
+     });
+ },'json');
+
+</script>
+</body>
